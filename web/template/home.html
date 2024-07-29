@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Paint Application</title>
+    <style>
+        /* CSS Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+        }
+
+        header h1 {
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: 500;
+        }
+
+        .signout-button {
+            background-color: #e74c3c;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        main {
+            flex: 1;
+            background-color: #fff;
+            padding: 40px 0;
+        }
+
+        .welcome-section, .upload-section {
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .button-primary, .button-secondary {
+            display: inline-block;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-transform: uppercase;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button-secondary {
+            background-color: #2ecc71;
+        }
+
+        .button-primary:hover, .button-secondary:hover {
+            background-color: #2980b9;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .gallery-item img {
+            max-width: 100%;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Virtual Paint Application</h1>
+            <nav>
+                <a href="/">Home</a>
+                <a href="/profile">Profile</a>
+                <a href="/help">Help</a>
+                <a href="/signout" class="signout-button">Sign out</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section class="welcome-section">
+                <h2>Welcome, {{ user.username }}</h2>
+                <form action="{% url 'open_camera' %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="button-primary">Open Camera</button>
+                </form>
+            </section>
+
+            <section class="upload-section">
+                <h2>Upload Your Profile Picture</h2>
+                <form method="post" action="/upload/" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <input type="file" name="pic" accept="image/*" required> <br>
+                    <button type="submit" class="button-secondary">Upload</button>
+                </form>
+                <div class="gallery">
+                    {% for p in img %}
+                    <div class="gallery-item">
+                        <img src="/media/{{ p.pic }}" alt="Profile Picture">
+                    </div>
+                    {% endfor %}
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Virtual Paint Application. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="{% static 'home.js' %}"></script>
+</body>
+</html>
