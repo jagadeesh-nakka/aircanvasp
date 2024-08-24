@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Paint</title>
+    <link rel="icon" href="/media/logo.png">
+    <style>
+        * {
+            text-shadow: 0 15px 20px rgba(0,0,0,0.25),
+                 0 10px 10px rgba(0,0,0,0.20);
+            font-family: monospace;
+        }
+
+        body {
+            background-image: url(/media/hero.jpg);
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;   
+        }
+
+        header {
+            background-color: dodgerblue;
+            color: #fff;
+            padding: 5px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 15px 20px rgba(0,0,0,0.25),
+                 0 10px 10px rgba(0,0,0,0.20);
+        }
+
+        .app{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        header img{
+            width: 65px;
+            filter: drop-shadow(0px 10px 10px rgba(0,0,0,0.20));
+        }
+
+        nav a {
+            color: #fff;
+            padding: 0 30px;
+            text-decoration: none;
+            font-size: 13px;
+            
+        }
+
+        nav a:hover{
+            color: black;
+        }
+
+        .signout-button {
+            background-color: #fa2a55;
+            padding: 10px 20px;
+            border-radius: 5px;
+            color: #fff;
+            margin: 10px;
+            box-shadow: 0 15px 20px rgba(0,0,0,0.25),
+                 0 10px 10px rgba(0,0,0,0.20);
+        }
+
+        .signout-button:hover{
+            margin: 7px;
+            padding: 13px 23px;
+        }
+
+        main{
+            padding: 20px; 
+        }
+
+        .pro{
+            background-color: #fff;
+            padding: 10px;
+            box-shadow: 0 15px 20px rgba(0,0,0,0.25),
+                 0 10px 10px rgba(0,0,0,0.20);
+        }
+
+        .main{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0px 20px;
+            margin: 20px 0 0 0;
+            background-color: #fff;
+            box-shadow: 0 15px 20px rgba(0,0,0,0.25),
+                 0 10px 10px rgba(0,0,0,0.20);
+        }
+
+        main img{
+            max-width: 30vw;
+            margin: 0 50px 0 0;
+            box-shadow: 0 14px 28px rgba(0,0,0,0.25),
+                        0 10px 10px rgba(0,0,0,0.22);
+        }
+
+        .matter{
+            margin: 30px 0px 70px 0px;
+        }
+
+        .matter h2{
+            /* text-shadow: none; */
+            margin: 0px;
+            font-size: 8.35vw;
+        }
+        
+        .pro h1{
+            padding: 0 20px;
+        }
+
+        p{
+            padding: 10px 5px;
+        }
+        
+        .matter a{
+            color: #fff;
+            text-decoration: none;
+            text-shadow: 0 15px 20px rgba(0,0,0,0.25),
+                 0 10px 10px rgba(0,0,0,0.20);
+            background-color: black;
+            padding: 12px 18px;
+            border-radius: 5px;
+            box-shadow: 0 15px 20px rgba(0,0,0,0.25),
+                 0 10px 10px rgba(0,0,0,0.20);
+            margin: 3px;
+        }
+        .matter a:hover{
+            margin: 0px;
+            padding: 15px 21px;
+            background-color: dodgerblue;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="app">
+            <img src="/media/logo.png">
+            <h1>Virtual Paint</h1>
+        </div>
+        <nav>
+            <a href="/home">Home</a>
+            <a href="/signout" class="signout-button">Sign out</a>
+        </nav>
+    </header>
+    <main>
+        <div class="pro">
+            <h1>Welcome, {{ user.username.capitalize }}</h1>
+        </div>
+        <div class="main">
+            <img src="/media/person.png">
+            <div class="matter">
+                <h2>VIRTUAL PAINT</h2>
+                <p>Unleash Your Creativity, Draw Beyond Limits with Air Canvas</p>
+                <a href="/home/">Get Started</a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

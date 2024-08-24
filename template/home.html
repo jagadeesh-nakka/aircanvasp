@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Paint</title>
+    <link rel="icon" href="/media/logo.png">
+    <style>
+        /* CSS Styles */
+        * {
+            font-family: monospace;
+            text-shadow: 0 15px 20px rgba(0,0,0,0.25),
+                 0 10px 10px rgba(0,0,0,0.20);
+        }
+        body {
+            background-image: url(/media/hero.jpg);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: dodgerblue;
+            color: #fff;
+            padding: 5px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 15px 20px rgba(0,0,0,0.25),
+                 0 10px 10px rgba(0,0,0,0.20);
+        }
+
+        .app{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        header img{
+            width: 65px;
+            filter: drop-shadow(0 10px 10px rgba(0,0,0,0.20));
+        }
+
+        nav a {
+            color: #fff;
+            padding: 0 30px;
+            text-decoration: none;
+        }
+
+        nav a:hover{
+            color: black;
+        }
+
+        .signout-button {
+            background-color: #fa2a55;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #fff;
+            margin: 10px;
+            box-shadow: 0 15px 20px rgba(0,0,0,0.25),
+            0 10px 10px rgba(0,0,0,0.20);
+        }
+
+        .signout-button:hover{
+            margin: 7px;
+            padding: 13px 23px;
+        }
+
+        main {
+            padding: 80px 20px;
+        }
+
+        button{
+            background-color: dodgerblue;
+            max-width: 100%;
+            max-height: 100%;
+            border: none;
+            color: #fff;
+            padding: 10px;
+            cursor: pointer;
+            box-shadow: 0 14px 28px rgba(0,0,0,0.25),
+                        0 10px 10px rgba(0,0,0,0.22);
+        }
+
+        .cards{
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+
+        .card{
+            margin: 10px;
+            background-color: #fa2a55;
+            width: 25vw;
+            height: 28vw;
+            font-size: 1.6vw;
+            color:#fa2a55;
+        }
+
+        .card:hover{
+            transform: scale(1.05);
+            transition: transform 0.1s ease-in-out;
+        }
+
+        .card img{
+            background-color: #fff;
+            max-width: 100%;
+        }
+
+        .white{
+            padding: 30px;
+            background-color: #fff;
+        }
+        
+        h3{
+            font-size:larger;
+            text-align: left;
+            margin: 10px 0px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="app">
+            <img src="/media/logo.png">
+            <h1>Virtual Paint</h1>
+        </div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="/signout" class="signout-button">Sign out</a>
+        </nav>
+    </header>
+    <main>
+        <div class="cards">
+            <div class="card">
+                <form action="{% url 'open_camera' %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit">
+                        <h3>Open Camera</h3>
+                        <div class="white">
+                            <img src="/media/camera.png">
+                        </div>
+                    </button>
+                </form>        
+            </div>
+            <div class="card" method="post">
+                <form action="/gallery">
+                    <button type="submit">
+                        <h3>Open Gallery</h3>
+                        <div class="white">
+                            <img src="/media/gallery.png">
+                        </div>
+                    </button>
+                </form>
+            </div>
+            <div class="card">
+                <form action="/tips">
+                    <button type="submit">
+                        <h3>How to Use</h3>
+                        <div class="white">
+                            <img src="/media/tips.png">
+                        </div>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Virtual Paint Application. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="{% static 'home.js' %}"></script>
+</body>
+</html>

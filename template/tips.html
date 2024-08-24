@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tips</title>
+    <link rel="icon" href="/media/logo.png">
+    <style>
+        * {
+            font-family: monospace;
+            text-shadow: 0 15px 20px rgba(0,0,0,0.25),
+            0 10px 10px rgba(0,0,0,0.20);
+        }
+        body {
+            background-image: url(/media/hero.jpg);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+        
+        header {
+            background-color: dodgerblue;
+            color: #fff;
+            padding: 5px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 15px 20px rgba(0,0,0,0.25),
+            0 10px 10px rgba(0,0,0,0.20);
+        }
+        
+        .app{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        header img{
+            width: 65px;
+            filter: drop-shadow(0 10px 10px rgba(0,0,0,0.20));
+        }
+        
+        a {
+            color: #fff;
+            padding: 0 30px;
+            text-decoration: none;
+        }
+
+        nav a:hover{
+            color: #000;
+        }
+        
+        .signout-button {
+            background-color: #fa2a55;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #fff;
+            margin: 10px;
+            box-shadow: 0 15px 20px rgba(0,0,0,0.25),
+            0 10px 10px rgba(0,0,0,0.20);
+        }
+        
+        .signout-button:hover{
+            margin: 7px;
+            padding: 13px 23px;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .section{
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 14px 28px rgba(0,0,0,0.25),
+                        0 10px 10px rgba(0,0,0,0.22);
+        }
+
+        .container{
+            padding: 10px;
+        }
+
+        .foot{
+            background-color: dodgerblue;
+            color: #fff;
+            text-align: center;
+            padding: 1px 0;
+        }
+        
+
+        .foot a:hover{
+            color: black;
+        }
+
+        .container img{
+            max-width: 250px;
+            box-shadow: 0 14px 28px rgba(0,0,0,0.25),
+                        0 10px 10px rgba(0,0,0,0.22);
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+        </style>
+</head>
+<body>
+    <header>
+        <div class="app">
+            <img src="/media/logo.png">
+            <h1>Virtual Paint</h1>
+        </div>
+        <nav>
+            <a href="/home">Home</a>
+            <a href="/signout" class="signout-button">Sign out</a>
+        </nav>
+    </header>
+    <main>
+        <div class="section">
+            <div class="container">
+                <h2>How Hand Detection Works</h2>
+                <p>The Virtual Paint Application uses the hand detection points to track and detect hand movements. This enables precise gesture recognition, allowing the system to respond accurately to your hand gestures for selecting features and drawing shapes.</p>
+                <img src="/media/hand.png"><br><br><br>
+
+                <h2>Instructions</h2>
+                <h3>Optimal Distance from Camera:</h3>
+                <p>Ensure you're standing or sitting at a distance where your hand is fully visible to the camera. This typically means staying within the camera's focal range, neither too close nor too far.</p><br>
+                
+                <h3>Good Lighting Conditions:</h3>
+                <p>Use the Air Canvas in a well-lit environment to help the camera accurately detect and track your hand movements. Avoid shadows or overly bright lights that can cause glare.</p><br>
+                
+                <h3>Shape Selection with Index Finger:</h3>
+                <p>Use your index finger to hover over and select different features, like the shape you want to draw, the eraser, or color options. Hold your finger steady for a moment to confirm the selection.</p>
+                <img src="/media/onefinger.png" alt=""><br>
+                
+                <h3>Drawing with Index and Middle Fingers:</h3>
+                <p>When ready to draw, use both your index and middle fingers together. This dual-finger approach signals the system to start drawing the chosen shape or line on the canvas.</p>
+                <img src="/media/twofingers.png"><br>
+
+                <h3>Using the Eraser Tool:</h3>
+                <p>If you make a mistake or want to remove part of your drawing, switch to the eraser tool using the index finger and then erase by moving your hand over the area you want to clear.</p><br>
+                
+                <h3>Adjusting Colors and Contrast:</h3>
+                <p>Use the trackbars to change the drawing color and contrast. Move your hand gently to adjust the settings until you achieve the desired effect.</p><br>
+            </div>
+        </div>
+    </main>
+        <div class="foot">
+            <h3><a href="#">Back to Top</a></h3>
+        </div>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Virtual Paint Application. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
